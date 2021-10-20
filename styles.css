@@ -7,8 +7,10 @@
 }
 
 .navbar {
-    background: #131313;
-    height: 80px;
+    background: #a5531d52;
+    backdrop-filter: blur(7px);
+    /* background-image: linear-gradient(to top, #ffffff00 0%, #ffaa49a2 100%); */
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +28,11 @@
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 50px;
+    padding: 0 30px;
 }
 
 #navbar__logo {
-    background-color: #ff8177;
-    background-image: linear-gradient(to top, #ff0831 0%, #ff9271 100%);
+    background-color: #fffec7;
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -42,7 +43,23 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    width: 100%;
 
+}
+
+#navbar__logoIcon {
+    background-color: #ffffff;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    padding-right: 35rem;
 }
 
 .fa-gem {
@@ -68,6 +85,7 @@
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
+    font-size: 1.25rem;
 }
 
 .navbar__btn {
@@ -85,22 +103,28 @@
     text-decoration: none;
     padding: 10px 20px;
     height: 100%;
-    width: 100%;
+    width: 100px;
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #f77062;
+    background: #b96b36;
     color: #fff;
 }
 
 .button:hover {
-    background: #ffa837;
+    /* color: rgb(144, 75, 10); */
+    background: #e2b478;
     transition: all 0.3s ease;
 }
 
 .navbar__links:hover {
-    color: #f77062;
+    color: #e69850;
     transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #92480b81;
+    transition: all 0.6s ease;
 }
 
 /*
@@ -121,25 +145,37 @@ to 960 and above
     .navbar__menu {
         display: grid;
         grid-template-columns: auto;
-        margin: 0;
-        width: 100%;
+        margin: 10;
+        width: 30%;
         position: absolute;
-        /* top: -1000px;
-        opacity: 0; */
+        top: -10px;
+        opacity: 0;
         transition: all 0.5s ease;
-        height: 50vh;
+        height: 30vh;
         z-index: -1;
-        background: #131313;
+        background: #1313132d;
+        position: relative;
+        font-size: 1.6rem;
     }
 
     .navbar__menu.active {
-        background: #131313;
-        top: 100%;
+        background: #2c140396;
+        top: 110%;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 99;
-        height: 50vh;
+        height: 30vh;
         font-size: 1.6rem;
+        box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.65);
+
+        /*  
+            This blur seems to work best only on stationary objects.
+            Moving elements with this filter lags the client.
+            Stack overflow proposes applying the filter server side 
+            but I don't know how to do that.
+
+            backdrop-filter: blur(10px);
+        */
     }
 
     #navbar__logo {
@@ -147,10 +183,17 @@ to 960 and above
         font-size: 1.25rem;
     }
 
+    #navbar__logoIcon {
+        position: absolute;
+        height: 75px;
+        padding-left: 175px;
+        font-size: 26px;
+    }
+
     .navbar__toggle .bar {
-        width: 25px;
+        width: 30px;
         height: 3px;
-        margin: 5px auto;
+        margin: 7px auto;
         transition: all 0.3s ease-in-out;
         background: #fff;
         display: block;
@@ -164,7 +207,9 @@ to 960 and above
     .navbar__links {
         text-align: center;
         padding: 2rem;
+        margin: 0rem;
         width: 100%;
+        height: 50%;
         display: table;
     }
 
@@ -190,13 +235,14 @@ to 960 and above
 
     #mobile-menu.is-active .bar:nth-child(2) {
         opacity: 0;
+        /* transform: rotate(135deg); */
     }
 
     #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(8px) rotate(45deg);
+        transform: translate(0, 10px) rotate(135deg);
     }
 
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(-8px) rotate(-45deg);
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translate(0, -10px) rotate(-135deg);
     }
 }
