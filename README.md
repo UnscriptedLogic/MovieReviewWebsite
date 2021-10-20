@@ -1,2 +1,0 @@
-# MovieReviewWebsite
-School Project Thing
