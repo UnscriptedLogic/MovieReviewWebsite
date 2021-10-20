@@ -124,8 +124,8 @@ to 960 and above
         margin: 0;
         width: 100%;
         position: absolute;
-        /* top: -1000px;
-        opacity: 0; */
+        top: -1000px;
+        opacity: 0;
         transition: all 0.5s ease;
         height: 50vh;
         z-index: -1;
@@ -149,7 +149,7 @@ to 960 and above
 
     .navbar__toggle .bar {
         width: 25px;
-        height: 3px;
+        height: 2px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
         background: #fff;
@@ -193,10 +193,10 @@ to 960 and above
     }
 
     #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(8px) rotate(45deg);
+        transform: translate(0, 7px) rotate(135deg);
     }
 
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(-8px) rotate(-45deg);
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translate(0, -7px) rotate(-135deg);
     }
 }
