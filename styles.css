@@ -1,132 +1,130 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Kumbh Sans', sans-serif;
-
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 .navbar {
-    background: #a5531d52;
-    backdrop-filter: blur(7px);
-    /* background-image: linear-gradient(to top, #ffffff00 0%, #ffaa49a2 100%); */
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  background: #a5531d52;
+  backdrop-filter: blur(10px);
+  /* background-image: linear-gradient(to top, #ffffff00 0%, #ffaa49a2 100%); */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar__container {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
 #navbar__logo {
-    background-color: #fffec7;
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    width: 100%;
-
+  background-color: #fffec7;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  width: 100%;
 }
 
 #navbar__logoIcon {
-    background-color: #ffffff;
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    padding-right: 35rem;
+  background-color: #ffffff;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  padding-right: 35rem;
 }
 
 .fa-gem {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .navbar__menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
 }
 
 .navbar__item {
-    height: 80px;
+  height: 80px;
 }
 
 .navbar__links {
-    color: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    font-size: 1.25rem;
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  font-size: 1.25rem;
 }
 
 .navbar__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 100px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #b96b36;
-    color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #b96b36;
+  color: #fff;
 }
 
 .button:hover {
-    /* color: rgb(144, 75, 10); */
-    background: #e2b478;
-    transition: all 0.3s ease;
+  /* color: rgb(144, 75, 10); */
+  background: #e2b478;
+  transition: all 0.3s ease;
 }
 
 .navbar__links:hover {
-    color: #e69850;
-    transition: all 0.3s ease;
+  color: #e69850;
+  transition: all 0.3s ease;
 }
 
 .navbar:hover {
-    background-color: #92480b81;
-    transition: all 0.6s ease;
+  background-color: #92480b81;
+  transition: all 0.6s ease;
 }
 
 /*
@@ -134,43 +132,43 @@ These classes are only called when the screen is resized
 to 960 and above
 */
 @media screen and (max-width: 960px) {
-    .navbar__container {
-        display: flex;
-        justify-content: space-between;
-        height: 80px;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
-    }
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
 
-    .navbar__menu {
-        display: grid;
-        grid-template-columns: auto;
-        margin: 10;
-        width: 30%;
-        position: absolute;
-        top: -10px;
-        opacity: 0;
-        transition: all 0.5s ease;
-        height: 30vh;
-        z-index: -1;
-        background: #1313132d;
-        position: relative;
-        font-size: 1.6rem;
-    }
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 10;
+    width: 30%;
+    position: absolute;
+    top: -10px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    height: 30vh;
+    z-index: -1;
+    background: #1313132d;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-    .navbar__menu.active {
-        background: #2c140396;
-        top: 110%;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 99;
-        height: 30vh;
-        font-size: 1.6rem;
-        box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.65);
+  .navbar__menu.active {
+    background: #2c140396;
+    top: 110%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 30vh;
+    font-size: 1.6rem;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.65);
 
-        /*  
+    /*  
             This blur seems to work best only on stationary objects.
             Moving elements with this filter lags the client.
             Stack overflow proposes applying the filter server side 
@@ -178,73 +176,90 @@ to 960 and above
 
             backdrop-filter: blur(10px);
         */
-    }
+  }
 
-    #navbar__logo {
-        padding-left: 25px;
-        font-size: 1.25rem;
-    }
+  #navbar__logo {
+    padding-left: 25px;
+    font-size: 1.25rem;
+  }
 
-    #navbar__logoIcon {
-        position: absolute;
-        height: 75px;
-        padding-left: 175px;
-        font-size: 26px;
-    }
+  #navbar__logoIcon {
+    position: absolute;
+    height: 75px;
+    padding-left: 175px;
+    font-size: 26px;
+  }
 
-    .navbar__toggle .bar {
-        width: 30px;
-        height: 3px;
-        margin: 7px auto;
-        transition: all 0.3s ease-in-out;
-        background: #fff;
-        display: block;
-        cursor: pointer;
-    }
+  .navbar__toggle .bar {
+    width: 30px;
+    height: 3px;
+    margin: 7px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    display: block;
+    cursor: pointer;
+  }
 
-    .navbar__item {
-        width: 100%;
-    }
+  .navbar__item {
+    width: 100%;
+  }
 
-    .navbar__links {
-        text-align: center;
-        padding: 2rem;
-        margin: 0rem;
-        width: 100%;
-        height: 50%;
-        display: table;
-    }
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    margin: 0rem;
+    width: 100%;
+    height: 50%;
+    display: table;
+  }
 
-    #mobile-menu {
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
 
-    .navbar__btn {
-        padding-bottom: 2rem;
-    }
+  .navbar__btn {
+    padding-bottom: 2rem;
+  }
 
-    .button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        height: 50px;
-        margin: 0px;
-    }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50px;
+    margin: 0px;
+  }
 
-    #mobile-menu.is-active .bar:nth-child(2) {
-        opacity: 0;
-        /* transform: rotate(135deg); */
-    }
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+    /* transform: rotate(135deg); */
+  }
 
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(0, 10px) rotate(135deg);
-    }
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translate(0, 10px) rotate(135deg);
+  }
 
-    #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translate(0, -10px) rotate(-135deg);
-    }
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translate(0, -10px) rotate(-135deg);
+  }
+}
+
+.content__container {
+  position: relative;
+  width: 1200px;
+  height: 3000px;
+  margin: 240px auto;
+}
+
+.content__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.466);
+  border-radius: 15px;
+  opacity: 1;
+  backdrop-filter: blur(1px);
 }
