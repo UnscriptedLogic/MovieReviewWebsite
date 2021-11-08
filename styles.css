@@ -10,6 +10,7 @@
 .logo__text {
   color: rgb(255, 241, 163);
   font-size: 30px;
+  text-decoration: none;
 }
 
 .topbar {
