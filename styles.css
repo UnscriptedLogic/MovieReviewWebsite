@@ -1,250 +1,33 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Kumbh Sans', sans-serif;
-
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+  text-decoration-style: none;
+  text-decoration: none;
 }
 
-.navbar {
-    background: #a5531d52;
-    backdrop-filter: blur(7px);
-    /* background-image: linear-gradient(to top, #ffffff00 0%, #ffaa49a2 100%); */
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+.logo__text {
+  color: rgb(255, 241, 163);
+  font-size: 30px;
+  text-decoration: none;
 }
 
-.navbar__container {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 30px;
+.topbar {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.562);
+  align-content: center;
+  display: flex;
 }
 
-#navbar__logo {
-    background-color: #fffec7;
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    width: 100%;
-
-}
-
-#navbar__logoIcon {
-    background-color: #ffffff;
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    padding-right: 35rem;
-}
-
-.fa-gem {
-    margin-right: 0.5rem;
-}
-
-.navbar__menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-}
-
-.navbar__item {
-    height: 80px;
-}
-
-.navbar__links {
-    color: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    font-size: 1.25rem;
-}
-
-.navbar__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
-}
-
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 100px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #b96b36;
-    color: #fff;
-}
-
-.button:hover {
-    /* color: rgb(144, 75, 10); */
-    background: #e2b478;
-    transition: all 0.3s ease;
-}
-
-.navbar__links:hover {
-    color: #e69850;
-    transition: all 0.3s ease;
-}
-
-.navbar:hover {
-    background-color: #92480b81;
-    transition: all 0.6s ease;
-}
-
-/*
-These classes are only called when the screen is resized
-to 960 and above
-*/
-@media screen and (max-width: 960px) {
-    .navbar__container {
-        display: flex;
-        justify-content: space-between;
-        height: 80px;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
-    }
-
-    .navbar__menu {
-        display: grid;
-        grid-template-columns: auto;
-        margin: 10;
-        width: 30%;
-        position: absolute;
-        top: -10px;
-        opacity: 0;
-        transition: all 0.5s ease;
-        height: 30vh;
-        z-index: -1;
-        background: #1313132d;
-        position: relative;
-        font-size: 1.6rem;
-    }
-
-    .navbar__menu.active {
-        background: #2c140396;
-        top: 110%;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 99;
-        height: 30vh;
-        font-size: 1.6rem;
-        box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.65);
-
-        /*  
-            This blur seems to work best only on stationary objects.
-            Moving elements with this filter lags the client.
-            Stack overflow proposes applying the filter server side 
-            but I don't know how to do that.
-
-            backdrop-filter: blur(10px);
-        */
-    }
-
-    #navbar__logo {
-        padding-left: 25px;
-        font-size: 1.25rem;
-    }
-
-    #navbar__logoIcon {
-        position: absolute;
-        height: 75px;
-        padding-left: 175px;
-        font-size: 26px;
-    }
-
-    .navbar__toggle .bar {
-        width: 30px;
-        height: 3px;
-        margin: 7px auto;
-        transition: all 0.3s ease-in-out;
-        background: #fff;
-        display: block;
-        cursor: pointer;
-    }
-
-    .navbar__item {
-        width: 100%;
-    }
-
-    .navbar__links {
-        text-align: center;
-        padding: 2rem;
-        margin: 0rem;
-        width: 100%;
-        height: 50%;
-        display: table;
-    }
-
-    #mobile-menu {
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
-
-    .navbar__btn {
-        padding-bottom: 2rem;
-    }
-
-    .button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        height: 50px;
-        margin: 0px;
-    }
-
-    #mobile-menu.is-active .bar:nth-child(2) {
-        opacity: 0;
-        /* transform: rotate(135deg); */
-    }
-
-    #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translate(0, 10px) rotate(135deg);
-    }
-
-    #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translate(0, -10px) rotate(-135deg);
-    }
+.logIn__button {
+  position: absolute;
+  color: white;
+  background: rgb(230, 135, 11);
+  padding: 10px;
+  margin-left: 85em;
+  width: 90px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
 }
