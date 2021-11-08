@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="54" viewBox="0 0 240 54">
+  <g id="Dropdown_tmp" transform="translate(-386.457 -232.279)">
+    <rect id="Background" width="240" height="54" rx="27" transform="translate(386.457 232.279)" fill="#f6efed"/>
+    <circle id="ArrowContiainer" cx="17" cy="17" r="17" transform="translate(581.457 242.279)" fill="#bebebe"/>
+    <g id="Dropdown_Arrow" data-name="Dropdown Arrow" transform="translate(590.216 256.735)">
+      <line id="Line_2" data-name="Line 2" x2="8.554" y2="9.089" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+      <line id="Line_3" data-name="Line 3" x1="8.554" y2="9.089" transform="translate(8.554)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
