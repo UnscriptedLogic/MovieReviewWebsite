@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="425" height="54" viewBox="0 0 425 54">
+  <g id="SearchBar" transform="translate(-1114 -246)">
+    <rect id="Background" width="425" height="54" transform="translate(1114 246)" fill="#fff"/>
+    <path id="search-solid" d="M26.821,23.512l-5.3-5.3a1.274,1.274,0,0,0-.9-.372h-.866a11.042,11.042,0,1,0-1.912,1.912v.866a1.274,1.274,0,0,0,.372.9l5.3,5.3a1.269,1.269,0,0,0,1.8,0l1.5-1.5A1.281,1.281,0,0,0,26.821,23.512ZM11.047,17.845a6.8,6.8,0,1,1,6.8-6.8A6.794,6.794,0,0,1,11.047,17.845Z" transform="translate(1492.386 259.902)" fill="#9d9d9d"/>
+  </g>
+</svg>
