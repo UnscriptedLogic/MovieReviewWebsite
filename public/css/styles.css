@@ -7,7 +7,7 @@
   text-decoration: none;
 }
 
-.logo__text {
+.logo-text {
   color: #ecddd6;
   font-size: 30px;
   text-decoration: none;
@@ -22,7 +22,7 @@
   margin-bottom: 7em;
 }
 
-.logIn__button {
+.logIn-button {
   position: absolute;
   color: white;
   background: #a05e43;
@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.sorting__background {
+.sorting-background {
   background: rgba(0, 0, 0, 0.472);
   position: relative;
   width: 1200px;
@@ -44,14 +44,14 @@
   transition: 0.3s;
 }
 
-.view__background {
+.view-background {
   background: rgba(0, 0, 0, 0.472);
   position: relative;
-  width: 1200px;
+  width: 70%;
   height: 1000px;
   margin: 30px auto;
   border-radius: 10px;
-  z-index: -1;
+  padding: 0.5%;
 }
 
 .dropdown {
@@ -61,11 +61,11 @@
   margin-right: 21px;
 }
 
-.sort__label {
+.sort-label {
   position: absolute;
   color: black;
   top: 14px;
-  left: 25px;
+  left: 15px;
   pointer-events: none;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -75,13 +75,13 @@
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-.dropdown__button {
+.dropdown-button {
   height: 50px;
   border-radius: 25px;
   transition: 0.3s;
 }
 
-.dropdown__menu {
+.dropdown-menu {
   position: absolute;
   left: 0;
   top: calc(100% + 0.5rem);
@@ -92,14 +92,46 @@
   opacity: 0;
 }
 
-.sorting__background:hover {
+.sorting-background:hover {
   border-radius: 10px;
 }
 
-.dropdown__button:hover {
+.dropdown-button:hover {
   border-radius: 10px;
 }
 
-.dropdown.active > .dropdown__button + dropdown__menu {
+.dropdown.active > .dropdown-button + dropdown__menu {
   opacity: 1;
+}
+
+.card-bg {
+  background: white;
+  position: relative;
+  width: 95%;
+  height: 250px;
+  margin: 30px;
+  border-radius: 10px;
+  padding: 1.5%;
+}
+
+.restaurant-icon {
+  background: black;
+  position: relative;
+  width: 210px;
+  height: 210px;
+  border-radius: 10px;
+} 
+
+.search-background {
+  width: 385px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.search-background:hover {
+  border-radius: 10px;
+}
+
+.search {
+  position: absolute;
 }
