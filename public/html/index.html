@@ -18,7 +18,10 @@
 				What They Say?
 				<i class="fas fa-hamburger"></i>
 			</h2>
-			<h3 class="logIn-button">Log In</h3>
+			<!-- <h3 class="logIn-button"></h3> -->
+			<div class="logIn-button">
+				<a href="../html/login.html">Log In</a>
+			</div>
 		</div>
 	</header>
 	<body background="../images/wood_bg.jpg" alt="">
@@ -63,22 +66,40 @@
 				<h3 class="sort-label">SearchBar</h3>
 				<img class="search-background" src="../images/SearchBar.svg" alt="" />
 				<form action="" method="get">
-					<input class="search" type="text" placeholder="Search"/>
+					<input
+						class="search"
+						type="text"
+						placeholder="Search for restaurants"
+					/>
 				</form>
 			</div>
 		</div>
 		<div class="view-background">
 			<div class="card-container">
-				<div class="card-bg">
-					<div class="restaurant-icon-container">
-						<img src="../images/restaurantIcon.jpg" alt="" placeholder="Search" class="restaurant-icon">
-					</div>
-					<div class="card-contents">
-						<div class="card-title">Restaurant Title</div>
-						<div class="card-rating"></div>
-						<div class="card-description">This is the restaurant description</div>
-					</div>
-				</div>
+				<!-- <a href="../html/restaurant.html" class="card-button">
+
+				</a> -->
+				<form action="" method="get">
+					<button class="card-bg">
+						<div class="restaurant-icon-container">
+							<img
+								src="../images/restaurantIcon.jpg"
+								alt=""
+								class="restaurant-icon"
+							/>
+						</div>
+						<div class="card-contents">
+							<div class="card-title">Restaurant Title</div>
+							<div class="card-rating">Rating: 10/10</div>
+							<div class="card-description">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Temporibus impedit sapiente asperiores reiciendis sit aut culpa
+								quasi perspiciatis illum eos, quo id distinctio commodi nisi sed
+								maiores similique iste mollitia?
+							</div>
+						</div>
+					</button>
+				</form>
 			</div>
 		</div>
 	</body>

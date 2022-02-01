@@ -1,0 +1,68 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    text-decoration-style: none;
+    background: url(../images/wood_bg.jpg);
+    font-family: "Kumbh Sans", sans-serif;
+    overflow: hidden;
+}
+
+/* card properties */
+.restaurant-card {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    height: 350px;
+    width: 75%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.541)
+}
+
+.icon-container {
+    position: relative;
+    float: left;
+    top: 25px;
+    left: 25px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.restaurant-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-contents {
+    position: relative;
+    float: left;
+    width: 75%;
+    left: 25px; 
+    margin-left: 15px;
+    margin-top: 22px;
+    margin-bottom: 20px;
+}
+
+/* card text properties */
+.card-title {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.card-rating {
+    font-weight: 600;
+    font-size: 20px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-weight: 400;
+    font-size: 18px;
+}
+
