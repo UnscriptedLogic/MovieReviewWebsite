@@ -6,11 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>WTS - Restaurants</title>
 		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../css/card.css" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script
 			src="https://kit.fontawesome.com/bad3156c36.js"
 			crossorigin="anonymous"
 		></script>
-		<script src="app.js"></script>
+		<script src="../js/app.js"></script>
 	</head>
 	<header>
 		<div class="topbar">
@@ -24,7 +26,7 @@
 			</div>
 		</div>
 	</header>
-	<body background="../images/wood_bg.jpg" alt="">
+	<body onload="getRestaurants()" background="../images/wood_bg.jpg" alt="">
 		<div class="sorting-background">
 			<div class="dropdown" data-dropdown>
 				<h3 class="sort-label">Popularity</h3>
@@ -75,32 +77,7 @@
 			</div>
 		</div>
 		<div class="view-background">
-			<div class="card-container">
-				<!-- <a href="../html/restaurant.html" class="card-button">
-
-				</a> -->
-				<form action="" method="get">
-					<button class="card-bg">
-						<div class="restaurant-icon-container">
-							<img
-								src="../images/restaurantIcon.jpg"
-								alt=""
-								class="restaurant-icon"
-							/>
-						</div>
-						<div class="card-contents">
-							<div class="card-title">Restaurant Title</div>
-							<div class="card-rating">Rating: 10/10</div>
-							<div class="card-description">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Temporibus impedit sapiente asperiores reiciendis sit aut culpa
-								quasi perspiciatis illum eos, quo id distinctio commodi nisi sed
-								maiores similique iste mollitia?
-							</div>
-						</div>
-					</button>
-				</form>
-			</div>
+			<div class="card-container" id="card-container"></div>
 		</div>
 	</body>
 </html>

@@ -1,29 +1,72 @@
-var restaurant_url = "/movies";
-var restaurant_array = []; // This creates an empty movie array
-var restaurantCount = 0;
-
-var currentIndex = 0;
-var comment_url = "/comments";
-var comment_array = [] //creates an empty array 
-
-
-document.addEventListener("click", mouseclick => {
-    const isDropDownButton = mouseclick.target.matches("[data-dropdown-button]");
-
-    if (!isDropDownButton && mouseclick.target.closest("[data-dropdown]") != null) {
-        return
-    }
-
-    let currentDropDown;
-    if (isDropDownButton) {
-        currentDropDown = mouseclick.target.closest("[data-dropdown]")
-        currentDropDown.classList.toggle("active")
-    }
-
-    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
-        if (dropdown === currentDropDown) {
-            return
-        }
-        dropdown.classList.remove("active")
+const sendRequest = (method, url, data) => {
+    return axios.request({
+        method,     
+        url,
+        data
     })
-})
+}
+
+function getRestaurantByNameInURL() {
+
+    const name = new URLSearchParams();
+    sendRequest("POST", `http://localhost:8081/restaurants/${name.get("name")}`, {
+        name: name
+    })
+    .then((response) => {
+        console.log(response);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
+
+function createCard(title) {    
+    const table = document.getElementById("card-container");
+
+    var card_background = document.createElement("div");
+    card_background.classList.add("card-background");
+
+    card_background.onclick = function() { 
+        openRestaurant(title); 
+    }
+    table.appendChild(card_background);
+
+    var card_icon = document.createElement("div");
+    card_icon.classList.add("card-icon");
+    card_background.appendChild(card_icon);
+
+    var card_title = document.createElement("h1");
+    card_title.innerHTML = title;
+    card_title.classList.add("card-title");
+    card_icon.appendChild(card_title);
+}
+
+function getRestaurants() {
+    sendRequest("GET", "http://localhost:8081/restaurants").then((response) => {
+        for (const restaurant of response.data) {
+            console.log(response);
+            createCard(restaurant.name);
+        }
+    });
+}
+
+function openRestaurant(name) {
+    var url = new URL("restaurantpage.html", window.location.href);
+    url.searchParams.append("name", name);
+
+    window.open(url, "_self");
+}
+
+function login() {
+    sendRequest("POST", "http://localhost:8081/userlogin", {
+        firstname: "test",
+        lastname: "test", 
+        password: "test"
+    })
+    .then((response) => {
+        console.log(response);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
