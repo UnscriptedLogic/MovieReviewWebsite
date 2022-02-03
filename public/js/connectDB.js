@@ -2,7 +2,7 @@ console.log("connectDB.js")
 const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: "localhost",
-	port: 5050,
+	port: 3306,
 	user: "root",
 	password: "root@851",
 	database: "restaurant_review"
