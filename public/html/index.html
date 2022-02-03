@@ -6,11 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>WTS - Restaurants</title>
 		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../css/card.css" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script
 			src="https://kit.fontawesome.com/bad3156c36.js"
 			crossorigin="anonymous"
 		></script>
-		<script src="app.js"></script>
+		<script src="../js/app.js"></script>
 	</head>
 	<header>
 		<div class="topbar">
@@ -18,10 +20,13 @@
 				What They Say?
 				<i class="fas fa-hamburger"></i>
 			</h2>
-			<h3 class="logIn-button">Log In</h3>
+			<!-- <h3 class="logIn-button"></h3> -->
+			<div class="logIn-button">
+				<a href="../html/login.html">Log In</a>
+			</div>
 		</div>
 	</header>
-	<body background="../images/wood_bg.jpg" alt="">
+	<body onload="getRestaurants()" background="../images/wood_bg.jpg" alt="">
 		<div class="sorting-background">
 			<div class="dropdown" data-dropdown>
 				<h3 class="sort-label">Popularity</h3>
@@ -62,15 +67,17 @@
 			<div class="dropdown" data-dropdown>
 				<h3 class="sort-label">SearchBar</h3>
 				<img class="search-background" src="../images/SearchBar.svg" alt="" />
-				<input class="search" type="text" />
+				<form action="" method="get">
+					<input
+						class="search"
+						type="text"
+						placeholder="Search for restaurants"
+					/>
+				</form>
 			</div>
 		</div>
 		<div class="view-background">
-			<div class="card-container">
-				<div class="card-bg">
-					<div class="restaurant-icon"></div>
-				</div>
-			</div>
+			<div class="card-container" id="card-container"></div>
 		</div>
 	</body>
 </html>
