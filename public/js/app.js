@@ -1,6 +1,6 @@
 const sendRequest = (method, url, data) => {
     return axios.request({
-        method,     
+        method,
         url,
         data
     })
@@ -12,19 +12,19 @@ function getRestaurantByNameInURL() {
     sendRequest("POST", `http://localhost:8081/restaurants/${name.get("name")}`, {
         name: name
     })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 function getRestaurants() {
     sendRequest("GET", "http://localhost:8081/restaurants").then((response) => {
         localStorage.setItem("restaurantCount", response.data.length);
         localStorage.setItem("restaurantData", JSON.stringify(response.data));
-        console.log(response.data[0].name);  
+        console.log(response.data[0].name);
     });
 }
 
@@ -38,15 +38,15 @@ function openRestaurant(name) {
 function login() {
     sendRequest("POST", "http://localhost:8081/userlogin", {
         firstname: "test",
-        lastname: "test", 
+        lastname: "test",
         password: "test"
     })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 class Restaurant {
