@@ -5,10 +5,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../css/restaurant.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script
 			src="https://kit.fontawesome.com/bad3156c36.js"
 			crossorigin="anonymous"
 		></script>
+		<script src="../js/app.js"></script>
 		<title>Restaurant</title>
 	</head>
 	<body>
@@ -16,15 +19,16 @@
 			<div class="restaurant-card">
 				<div class="icon-container">
 					<img
-						src="../images/restaurantIcon.jpg"
+						src="../images/placeholderImage.png"
 						alt=""
 						class="restaurant-icon"
+						id="restaurant-icon"
 					/>
 				</div>
 				<div class="card-contents">
-					<h1 class="card-title">Restaurant Title</h1>
-					<h2 class="card-rating">Rating: 10/10</h2>
-					<p class="card-description">
+					<h1 class="card-title" id="retaurant-name">Restaurant Title</h1>
+					<h2 class="card-rating" id="retaurant-rating">Rating: 10/10</h2>
+					<p class="card-description" id="retaurant-description">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
 						impedit sapiente asperiores reiciendis sit aut culpa quasi
 						perspiciatis illum eos, quo id distinctio commodi nisi sed maiores
@@ -33,60 +37,74 @@
 				</div>
 			</div>
 			<div class="add-review">
-				<div class="text-field">
-					<input type="text" required />
-					<label>Rating Title</label>
+				<div class="add-review-title">
+					<div class="text-field">
+						<input type="text" required />
+						<label>Rating Title</label>
+					</div>
 				</div>
-				<div class="text-field">
-					<input type="number" min="0" step="1" required />
-					<label>Rating</label>
+				<div class="add-review-rating">
+					<div class="text-field">
+						<input type="number" min="0" step="1" max="10" required />
+						<label>Rating</label>
+					</div>
 				</div>
-				<div class="review-content">
+				<div class="add-review-content">
 					<div class="text-field">
 						<input type="text" required />
 						<label>Rating Content</label>
 					</div>
 				</div>
-			</div>
-
-			<div class="review-container">
-				<div class="review-card">
-					<h2 class="review-title">Rating Title</h2>
-					<h3 class="review-rating">Rating 10/10</h3>
-					<p class="review-content">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						Dignissimos molestiae ut sed iure obcaecati laborum delectus facere,
-						sint atque fuga reiciendis aliquid eum consequuntur, molestias
-						facilis reprehenderit fugit! Pariatur, velit?
-					</p>
-				</div>
-				<div class="review-card">
-					<h2 class="review-title">Rating Title</h2>
-					<h3 class="review-rating">Rating 10/10</h3>
-					<p class="review-content">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-						Dignissimos molestiae ut sed iure obcaecati laborum delectus facere,
-						sint atque fuga reiciendis aliquid eum consequuntur, molestias
-						facilis reprehenderit fugit! Pariatur, velit? Lorem ipsum dolor sit,
-						amet consectetur adipisicing elit. Alias eaque suscipit officia
-						animi, repudiandae ex ad nobis quidem, earum odio unde, repellat
-						labore cupiditate recusandae quasi laboriosam rem perspiciatis
-						lorem. Temporibus lorem urna tempora.
-					</p>
-					<p>Posted on 03/10/2003</p>
-				</div>
-				<div class="review-card">
-					<h2 class="review-title">Rating Title</h2>
-					<h3 class="review-rating">Rating 10/10</h3>
-					<p class="review-content">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-						corporis facere quod sunt quos quibusdam ipsam a odit hic voluptatum
-						at, placeat quam, nostrum, veniam sapiente suscipit aliquid. Velit,
-						reprehenderit?
-					</p>
-					<p>Posted on 03/10/2002 by Anonymous</p>
-				</div>
+				<button>
+					<h3 id="add-review-button">Add your review</h3>
+				</button>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function () {
+				const name = new URLSearchParams(window.location.search);
+				sendRequest("POST", `http://localhost:8081/restaurants/name/${name.get("name")}`, {
+					name: name
+				})
+				.then((restaurant) => {
+					$("#retaurant-name").text(restaurant.data[0].name);
+					$("#retaurant-description").text(restaurant.data[0].description);
+					$("#restaurant-icon").attr("src", restaurant.data[0].icon);
+					$("#retaurant-rating").text("Rating: " + restaurant.data[0].rating + "/10");
+					
+					sendRequest("POST", `http://localhost:8081/reviews/restaurantid/${restaurant.data[0].idRestaurant}`, {
+						id: restaurant.data[0].idRestaurant
+						})
+						.then((review) => {
+							for (let index = 0; index < review.data.length; index++) {
+									sendRequest("POST", `http://localhost:8081/user/id/${review.data[index].user_id}`, {
+										id: review.data[index].user_id
+									})
+									.then((user) => {
+										$(".content").append(
+										`
+										<div class="review-card">
+											<h2 class="review-title">${review.data[index].title}</h2>
+											<h3 class="review-rating">Rated it: ${review.data[index].rating}/10</h3>
+											<p class="review-content">${review.data[index].content}</p>
+											<p>Posted on ${review.data[index].create_time} by ${user.data[0].fname} ${user.data[0].lname}</p>
+										</div>
+										`
+									)
+								})
+								.catch((err) => {
+									console.log(err);
+								})
+							}
+						})
+					})
+					.catch((err) => {
+						console.log(err);
+					})
+				.catch((err) => {
+					console.log(err);
+				});
+			})
+		</script>
 	</body>
 </html>

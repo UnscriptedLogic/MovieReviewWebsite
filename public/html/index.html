@@ -23,8 +23,11 @@
 				<i class="fas fa-hamburger"></i>
 			</h2>
 			<!-- <h3 class="logIn-button"></h3> -->
-			<div class="logIn-button">
+			<div class="logIn-button" id="login">
 				<a href="../html/login.html">Log In</a>
+			</div>
+			<div class="logIn-button" id="logout" onclick="logOutUser()">
+				<h4>Log Out</h4>
 			</div>
 		</div>
 	</header>
@@ -81,17 +84,26 @@
 		<div class="view-background">
 			<script>
 				$(document).ready(function () {
+
+					if (localStorage.getItem("loggedIn") == "true") {
+						$("#logout").show();
+						$("#login").hide();
+					} else {
+						$("#logout").hide();
+						$("#login").show();
+					}
+
 					var restaurants = localStorage.getItem("restaurantCount")
 					var restaurantData = JSON.parse(localStorage.getItem("restaurantData"))
 					console.log(restaurantData);
 					for (var i = 0; i < restaurants; i++) {
 						$("#card-container").append(
 							`
-							<div class="card-bg">
+							<div class="card-bg" id="${restaurantData[i].name}">
 								<div class="restaurant-icon-container">
 									<img
 										src="${restaurantData[i].icon}"
-										alt="../images/restaurantIcon.jpg"
+										alt="'../images/restaurantIcon.jpg'"
 										class="restaurant-icon"
 									/>
 								</div>
@@ -104,6 +116,11 @@
 							`
 						)
 					}
+
+					$(".card-bg").click(function(e) {
+						openRestaurant(e.target.id)
+					})
+
 				});
 			</script>
 			<div class="card-container" id="card-container">

@@ -13,6 +13,26 @@ function getAllReviews(req, res){
     })
 }
 
+function getReviewsByRestaurantID(req, res) {
+    revDB.getReviewsByRestaurantID(req.params.id, (err, result) => {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(result)
+        }
+    })
+}
+
+function getReviewsByUserID(req, res) {
+    revDB.getReviewsByUserID(req.params.id, (err, result) => {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(result)
+        }
+    })
+}
+
 function addReview(req, res) {
 
     const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -34,4 +54,4 @@ function addReview(req, res) {
     })
 }
 
-module.exports = { getAllReviews, addReview }
+module.exports = { getAllReviews, addReview, getReviewsByRestaurantID, getReviewsByUserID }

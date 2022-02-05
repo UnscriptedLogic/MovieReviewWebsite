@@ -1,157 +1,175 @@
 :root {
-    --shadow: 8px 8px rgba(0, 0, 0, 0.541);
-    --radius: 10px;
-    --background-color: white;
+  --shadow: 8px 8px rgba(0, 0, 0, 0.541);
+  --radius: 10px;
+  --background-color: white;
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-    text-decoration-style: none;
-    background: url(../images/wood_bg.jpg);
-    font-family: "Kumbh Sans", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  text-decoration-style: none;
+  background: url(../images/wood_bg.jpg);
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 .content {
-    margin: auto;
-    width: 80%;
-    padding: 100px;
+  margin: auto;
+  width: 80%;
+  padding: 100px;
 }
 
 /* card properties */
 .restaurant-card {
-    position: relative;
-    height: 350px;
-    background: var(--background-color);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+  position: relative;
+  height: 350px;
+  background: var(--background-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .icon-container {
-    position: relative;
-    float: left;
-    top: 25px;
-    left: 25px;
-    width: 300px;
-    height: 300px;
-    border-radius: var(--radius);
+  position: relative;
+  float: left;
+  top: 25px;
+  left: 25px;
+  width: 300px;
+  height: 300px;
+  border-radius: var(--radius);
 }
 
 .restaurant-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
 }
 
 .card-contents {
-    position: relative;
-    float: left;
-    width: 75%;
-    left: 25px; 
-    margin-left: 15px;
-    margin-top: 22px;
-    margin-bottom: 20px;
+  position: relative;
+  float: left;
+  width: 75%;
+  left: 25px;
+  margin-left: 15px;
+  margin-top: 22px;
+  margin-bottom: 20px;
 }
 
 /* card text properties */
 .card-title {
-    font-weight: 700;
-    font-size: 24px;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .card-rating {
-    font-weight: 600;
-    font-size: 20px; 
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .card-description {
-    font-weight: 400;
-    font-size: 18px;
-    width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  width: 100%;
 }
 
 /* Adding Review*/
 .add-review {
-    margin-top: 6em;
-    position: relative;
-    background: var(--background-color);
-    padding: 20px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    min-height: 1vh;
+  margin-top: 6em;
+  position: relative;
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 1vh;
+}
+
+.add-review-content {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.add-review-rating {
+  width: 5%;
+}
+
+.add-review-title {
+  width: 30%;
 }
 
 .text-field {
-    position: relative;
-    width: 30%;
-    border-bottom: 2px solid #b99c9c;
+  position: relative;
+  width: 100%;
+  border-bottom: 2px solid #b99c9c;
+}
+
+#add-review-button {
+  position: relative;
+  width: 100%;
 }
 
 .text-field input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 20px;
-    border: none;
-    background: none;
-    outline: none;
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .text-field label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #bba39c;
-    transform: translateY(-50%);
-    font-size: 20px;
-    pointer-events: none;
-    transition: .5s;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #bba39c;
+  transform: translateY(-50%);
+  font-size: 20px;
+  pointer-events: none;
+  transition: 0.5s;
 }
 
 .text-field span::before {
-    content: "";
-    position: absolute;
-    top: 40%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-size: black;
-    transition: .5s;
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-size: black;
+  transition: 0.5s;
 }
 
 .text-field input:focus ~ label,
 .text-field input:valid ~ label {
-    color: rgba(192, 192, 192, 0);
+  color: rgba(192, 192, 192, 0);
 }
 
 .text-field input:focus ~ span::before,
 .text-field input:valid ~ span::before {
-    width: 100%;
+  width: 100%;
 }
 
 /* review card properties */
 .review-card {
-    position: relative;
-    background: var(--background-color);
-    padding: 20px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    min-height: 1vh;
+  position: relative;
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  min-height: 1vh;
 }
 
 .review-title {
-    margin: 0;
+  margin: 0;
 }
 
 .review-rating {
-    margin: 0;
+  margin: 0;
 }

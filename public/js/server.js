@@ -19,14 +19,18 @@ app.use(function (req, res, next) {
 
 //app.route(website route).method(function to call)
 app.route("/restaurants").get(restaurantController.getAllRestaurants)
-app.route("/restaurants/:name").post(restaurantController.getRestaurantByName)
+app.route("/restaurants/id/:id").post(restaurantController.getRestaurantByID)
+app.route("/restaurants/name/:name").post(restaurantController.getRestaurantByName)
 
 app.route("/user").get(userController.getAllUsers)
 app.route("/user").post(userController.addUser)
-app.route("/user/:name").post(userController.getUserByName)
+app.route("/user/id/:id").post(userController.getUserByID)
+app.route("/user/name/:name").post(userController.getUserByName)
 app.route("/userlogin").post(userController.loginUsername)
 
 app.route("/reviews").get(reviewController.getAllReviews)
+app.route("/reviews/restaurantid/:id").post(reviewController.getReviewsByRestaurantID)
+app.route("/reviews/userid/:id").post(reviewController.getReviewsByUserID)
 app.route("/reviews").post(reviewController.addReview)
 
 app.listen(8081, () => {

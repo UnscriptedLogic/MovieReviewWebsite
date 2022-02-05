@@ -8,7 +8,7 @@ const sendRequest = (method, url, data) => {
 
 function getRestaurantByNameInURL() {
 
-    const name = new URLSearchParams();
+    const name = new URLSearchParams(window.location.search);
     sendRequest("POST", `http://localhost:8081/restaurants/${name.get("name")}`, {
         name: name
     })
@@ -24,7 +24,6 @@ function getRestaurants() {
     sendRequest("GET", "http://localhost:8081/restaurants").then((response) => {
         localStorage.setItem("restaurantCount", response.data.length);
         localStorage.setItem("restaurantData", JSON.stringify(response.data));
-        console.log(response.data[0].name);
     });
 }
 
@@ -80,11 +79,39 @@ function registerUser() {
         phone: document.getElementById("phone").value,
         email: document.getElementById("email").value
     })
-        .then((response) => {
-            console.log(response);
-            window.open("index.html", "_self");
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    .then((response) => {
+        window.open("index.html", "_self");
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
+
+function getUserByID(id) {
+    sendRequest("POST", `http://localhost:8081/user/id/${id}`, {
+        id: id
+    })
+    .then((response) => {
+        console.log(response.data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
+function logOutUser() {
+    localStorage.setItem("loggedIn", false);
+    window.open("index.html", "_self");
+}
+
+function getReviewsWithID(id) {
+    sendRequest("POST", `http://localhost:8081/reviews/restaurantid/${id}`, {
+        id: id
+    })
+    .then((response) => {
+        localStorage.setItem("reviews", JSON.stringify(response.data));
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 }

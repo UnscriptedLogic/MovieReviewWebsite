@@ -2,17 +2,22 @@ const db = require('../connectDB')
 
 class UserDB{
     getAllUsers(callback) {
-        let sql = 'SELECT * from user'
+        const sql = 'SELECT * FROM user'
         db.query(sql, callback)
     }
 
     getUserByName(name, callback){
-        let sql = 'SELECT * from user where fname = ?'
-        return db.query(sql, [name], callback)
+        const sql = 'SELECT * FROM user WHERE fname = ?'
+        db.query(sql, [name], callback)
+    }
+
+    getUserByID(id, callback) {
+        const sql = "SELECT * FROM user WHERE id = ?"
+        db.query(sql, [id], callback)
     }
 
     addUser(user, callback){
-        const sql = "INSERT INTO user (id, fname, lname, password, display_picture, gender, address, mb_number, email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        const sql = "INSERT INTO user (id, fname, lname, password, display_picture, gender, address, mb_number, email) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
         db.query(
             sql,
             [
@@ -31,8 +36,8 @@ class UserDB{
     }
 
     updateUser(user, callback){
-        let sql = 'update user set fname = ?, lname = ?, password = ?, display_picture = ?, gender = ?, address = ?, mb_number = ?, email = ? where id = ?'
-        return db.query(
+        const sql = 'UDPATE user SET fname = ?, lname = ?, password = ?, display_picture = ?, gender = ?, address = ?, mb_number = ?, email = ? WHERE id = ?'
+        db.query(
             sql,
             [
                 user.getfname(),
@@ -50,14 +55,14 @@ class UserDB{
     }
 
     deleteUser(user, callback) {
-        let sql = "delete from user where id = ?"
-        return db.query(sql, [user.getid()], callback)
+        const sql = "DELETE FROM user WHERE id = ?"
+        db.query(sql, [user.getid()], callback)
     }
 
     loginUsername(username, callback) {
         var nameArray = username.split("%")
-        let sql = "select password from user where fname = ? and lname = ?"
-        return db.query(sql, [nameArray[0], nameArray[1]], callback)
+        const sql = "SELECT password FROM user WHERE fname = ? AND lname = ?"
+        db.query(sql, [nameArray[0], nameArray[1]], callback)
     }
 }
 

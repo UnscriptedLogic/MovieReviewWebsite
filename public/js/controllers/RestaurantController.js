@@ -15,8 +15,18 @@ function getAllRestaurants(req, res){
 
 function getRestaurantByName(req, res){
     const restaurantName = String(req.params.name)
-    console.log(restaurantName)
     restDB.getRestaurantByName(restaurantName, (err, result) => {
+        if(err){
+            res.json(err)
+        } else {
+            res.json(result)
+        }   
+    })
+}
+
+function getRestaurantByID(req, res){
+    const restaurantID = String(req.params.id);
+    restDB.getRestaurantByID(restaurantID, (err, result) => {
         if(err){
             res.json(err)
         } else {
@@ -25,4 +35,4 @@ function getRestaurantByName(req, res){
     })
 }
 
-module.exports = { getAllRestaurants, getRestaurantByName }
+module.exports = { getAllRestaurants, getRestaurantByName, getRestaurantByID }

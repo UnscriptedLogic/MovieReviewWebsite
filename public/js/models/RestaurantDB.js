@@ -8,9 +8,13 @@ class RestaurantDB{
     }
 
     getRestaurantByName(name, callback){
-        console.log(name)
-        let sql = "select * from restaurant where name = ?"
+        let sql = "SELECT * FROM restaurant WHERE name = ?"
         return db.query(sql, [name], callback)
+    }
+
+    getRestaurantByID(id, callback){
+        let sql = "SELECT * FROM restaurant WHERE idRestaurant = ?"
+        return db.query(sql, [id], callback)
     }
 }
 

@@ -24,6 +24,17 @@ function getUserByName(req, res) {
     })
 }
 
+function getUserByID(req, res) {
+    const id = req.params.id;
+    userDB.getUserByID(id, (err, result) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(result)
+        }
+    })
+}
+
 function addUser(req, res) {
     const user = new User(
         null,
@@ -65,4 +76,4 @@ function loginUsername(req, res) {
     })
 }
 
-module.exports = { getAllUsers, getUserByName, addUser, loginUsername }
+module.exports = { getAllUsers, getUserByName, getUserByID, addUser, loginUsername }

@@ -22,6 +22,16 @@ class ReviewDB{
 			callback
 		)
 	}
+
+	getReviewsByRestaurantID(id, callback) {
+		const sql = "SELECT * FROM review WHERE restaurant_id = ?"
+		db.query(sql, [id], callback)
+	}
+
+	getReviewsByUserID(id, callback) {
+		const sql = "SELECT * FROM review WHERE user_id = ?"
+		db.query(sql, [id], callback)
+	}
 }
 
 module.exports = ReviewDB
