@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Log In</title>
 		<link rel="stylesheet" href="../css/signup.css" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script
 			src="https://kit.fontawesome.com/bad3156c36.js"
 			crossorigin="anonymous"
@@ -19,24 +20,25 @@
 				></a>
 			</div>
 			<h1>Welcome Back!</h1>
-			<form method="post" action="/userlogin">
+			<div id="commentForm" class="comment-form">
 				<div class="text-field">
-					<input type="text" required />
+					<input type="text" id="fname" required />
 					<label>First Name</label>
 				</div>
 				<div class="text-field">
-					<input type="text" required />
+					<input type="text" id="lname" required />
 					<label>Last Name</label>
 				</div>
 				<div class="text-field">
-					<input type="text" required />
+					<input type="password" id="password" required />
 					<label>Password</label>
 				</div>
-				<input type="submit" value="Log In!" />
+				<button class="submit_form" onclick="loginUser()">Log In</button>
 				<div class="signup-link">
 					Not a member? <a href="../html/signup.html">Sign Up!</a>
 				</div>
 			</form>
 		</div>
+		<script src="../js/app.js"></script>
 	</body>
 </html>

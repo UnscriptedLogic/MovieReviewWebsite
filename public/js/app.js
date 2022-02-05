@@ -49,9 +49,22 @@ function login() {
         });
 }
 
-class Restaurant {
-    Restaurant(name, description) {
-        this.name = name;
-        this.description = description;
-    }
+function loginUser() {
+
+    sendRequest("POST", "http://localhost:8081/userlogin", { 
+        fname: document.getElementById("fname").value, 
+        lname: document.getElementById("lname").value, 
+        password: document.getElementById("password").value
+    })
+        .then((response) => {
+            localStorage.setItem("loggedIn", response.data.password == "valid password");
+            if (response.data.password == "valid password") {
+                window.open("index.html", "_self");
+            } else {
+                console.log("Invalid password");
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
