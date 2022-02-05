@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sign Up</title>
 		<link rel="stylesheet" href="../css/signup.css" />
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script
 			src="https://kit.fontawesome.com/bad3156c36.js"
 			crossorigin="anonymous"
@@ -19,32 +20,41 @@
 				></a>
 			</div>
 			<h1>Join The Fun!</h1>
-			<form method="post">
+			<div class="comment-form">
 				<div class="text-field">
-					<input type="text" required />
-					<label>Username</label>
+					<input type="text" id="fname" required />
+					<label>First Name</label>
 				</div>
 				<div class="text-field">
-					<input type="text" required />
+					<input type="text" id="lname" required />
+					<label>Last Name</label>
+				</div>
+				<div class="text-field">
+					<input type="password" id="password" required />
 					<label>New Password</label>
 				</div>
 				<div class="text-field">
-					<input type="text" required />
-					<label>Repeat Password</label>
+					<input type="text" id="gender" required />
+					<label>Gender</label>
 				</div>
 				<div class="text-field">
-					<input type="text" required />
+					<input type="tel" id="phone" required />
+					<label>Phone Number</label>
+				</div>
+				<div class="text-field">
+					<input type="text" id="address" required />
+					<label>Address ;)</label>
+				</div>
+				<div class="text-field">
+					<input type="text" id="email" required />
 					<label>Email</label>
 				</div>
-				<div class="date-field">
-					<input type="date" required />
-					<label>Date of birth</label>
-				</div>
-				<input type="submit" value="Let's Go!" />
+				<button class="submit_form" onclick="registerUser()">Sign Up!</button>
 				<div class="signup-link">
 					Already a member? <a href="../html/login.html">Log In!</a>
 				</div>
-			</form>
+			</div>
 		</div>
+		<script src="../js/app.js"></script>
 	</body>
 </html>

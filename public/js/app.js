@@ -68,3 +68,23 @@ function loginUser() {
             console.log(err);
         });
 }
+
+function registerUser() {
+    sendRequest("POST", "http://localhost:8081/user", {
+        fname: document.getElementById("fname").value,
+        lname: document.getElementById("lname").value,
+        password: document.getElementById("password").value,
+        display_picture: null,
+        gender: document.getElementById("gender").value,
+        address: document.getElementById("address").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value
+    })
+        .then((response) => {
+            console.log(response);
+            window.open("index.html", "_self");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
