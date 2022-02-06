@@ -1,11 +1,12 @@
 class Review {
-    constructor(id, restaurantID, userID, content, rating, datePosted) {
+    constructor(id, restaurantID, userID, content, rating, datePosted, title) {
         this.id = id;
         this.restID = restaurantID;
         this.content = content;
         this.userID = userID;
         this.rating = rating;
         this.datePosted = datePosted;
+        this.title = title;
     }
 
     //getter methods
@@ -27,7 +28,9 @@ class Review {
     getDatePosted() {
         return this.datePosted;
     }
-
+    getTitle() {
+        return this.title;
+    }
 
     //setter methods
     setRestaurantID(restID) {
@@ -44,6 +47,9 @@ class Review {
     }
     setDatePosted(datePosted) {
         this.datePosted = datePosted;
+    }
+    setTitle(title) {
+        this.title = title;
     }
 }
 

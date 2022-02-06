@@ -1,59 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/card.css" />
+    <link rel="stylesheet" href="../css/restaurant.css" />
     <title>test</title>
-</head>
-<body>
-    <script>
-        $(document).ready(function(){
-            for (var i = 0; i < 10; i++) {
-                $("#card-container").append(
-                    `
-                    <div class="restaurant-card">
-                        <div class="icon-container">
-                            <img
-                                src="../images/restaurantIcon.jpg"
-                                alt=""
-                                class="restaurant-icon"
-                            />
-                        </div>
-                        <div class="card-contents">
-                            <div class="card-title">Restaurant Title</div>
-                            <div class="card-rating">Rating: 10/10</div>
-                            <div class="card-description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-                                impedit sapiente asperiores reiciendis sit aut culpa quasi
-                                perspiciatis illum eos, quo id distinctio commodi nisi sed maiores
-                                similique iste mollitia?
-                            </div>
-                        </div>
-                    </div>
-                    `
-                    );
-            }
-
-            $(".mybutton").click(function(e){
-                alert(e.target.id);
-            });
-        });
-    </script>
-    <div id="card-container" class="card-container"></div>
-    
-    <!-- 
-    <button class="mybutton" id="mybutton1">
-        Click me
-    </button>
-    <button class="mybutton" id="mybutton2">
-        Click me
-    </button>
-    <button class="mybutton" id="mybutton3">
-        Click me
-    </button> -->
-</body>
+  </head>
+  <body>
+    <div class="review-card">
+      <h2 class="review-title">Hello</h2>
+      <h3 class="review-rating">Rated it: 5/10</h3>
+      <p class="review-content">Garbage</p>
+      <p>Posted on today by me</p>
+      <div class="modify">
+        <div class="delete">Edit</div>
+        <div class="delete">Delete</div>
+      </div>
+    </div>
+  </body>
 </html>

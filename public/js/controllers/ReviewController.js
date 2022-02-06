@@ -43,6 +43,7 @@ function addReview(req, res) {
         req.body.review,
         req.body.rating,
         now.toString(),
+        req.body.title
     )
 
     revDB.addReview(review, (err, result) => {
@@ -54,4 +55,14 @@ function addReview(req, res) {
     })
 }
 
-module.exports = { getAllReviews, addReview, getReviewsByRestaurantID, getReviewsByUserID }
+function deleteReview(req, res) {
+    revDB.deleteReviewByID(req.params.id, (err, result) => {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(result)
+        }
+    })
+}
+
+module.exports = { getAllReviews, addReview, getReviewsByRestaurantID, getReviewsByUserID, deleteReview }

@@ -32,6 +32,7 @@ app.route("/reviews").get(reviewController.getAllReviews)
 app.route("/reviews/restaurantid/:id").post(reviewController.getReviewsByRestaurantID)
 app.route("/reviews/userid/:id").post(reviewController.getReviewsByUserID)
 app.route("/reviews").post(reviewController.addReview)
+app.route("/reviews/delete/:id").post(reviewController.deleteReview)
 
 app.listen(8081, () => {
     console.log("Server started on port 8081");

@@ -71,7 +71,7 @@ function loginUsername(req, res) {
                 pwdValidjson = "valid password"
             }
 
-            res.json({password: pwdValidjson})
+            res.json({id: result[0].id, password: pwdValidjson})
         }
     })
 }

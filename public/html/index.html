@@ -99,7 +99,7 @@
 					for (var i = 0; i < restaurants; i++) {
 						$("#card-container").append(
 							`
-							<div class="card-bg" id="${restaurantData[i].name}">
+							<div class="card-bg" id="${restaurantData[i].idRestaurant}">
 								<div class="restaurant-icon-container">
 									<img
 										src="${restaurantData[i].icon}"
@@ -118,7 +118,8 @@
 					}
 
 					$(".card-bg").click(function(e) {
-						openRestaurant(e.target.id)
+						openRestaurant(e.target.id);
+						localStorage.setItem("CurrRestaurant", e.target.id);
 					})
 
 				});

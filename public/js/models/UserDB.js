@@ -61,7 +61,7 @@ class UserDB{
 
     loginUsername(username, callback) {
         var nameArray = username.split("%")
-        const sql = "SELECT password FROM user WHERE fname = ? AND lname = ?"
+        const sql = "SELECT * FROM user WHERE fname = ? AND lname = ?"
         db.query(sql, [nameArray[0], nameArray[1]], callback)
     }
 }

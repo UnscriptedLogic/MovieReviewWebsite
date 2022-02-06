@@ -8,16 +8,17 @@ class ReviewDB{
 
     addReview(review, callback) {
 		const sql =
-			"INSERT INTO review (idreview, create_time, rating, content, user_id, restaurant_id) VALUES (?, ?, ?, ?, ?, ?)"
+			"INSERT INTO review (idreview, create_time, title, rating, content, user_id, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?)"
 		db.query(
 			sql,
 			[
                 review.getId(),
 				review.getDatePosted(),
+				review.getTitle(),
 				review.getRating(),
                 review.getReview(),
 				review.getUserID(),
-				review.getRestaurantID(),
+				review.getRestaurantID()
 			],
 			callback
 		)
@@ -30,6 +31,11 @@ class ReviewDB{
 
 	getReviewsByUserID(id, callback) {
 		const sql = "SELECT * FROM review WHERE user_id = ?"
+		db.query(sql, [id], callback)
+	}
+
+	deleteReviewByID(id, callback) {
+		const sql = "DELETE FROM review WHERE idreview = ?"
 		db.query(sql, [id], callback)
 	}
 }
