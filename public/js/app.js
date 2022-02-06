@@ -28,9 +28,10 @@ function getRestaurants() {
 }
 
 function openRestaurant(name) {
+    localStorage.setItem("CurrRestaurant", name);
+    
     var url = new URL("restaurant.html", window.location.href);
     url.searchParams.append("name", name);
-
     window.open(url, "_self");
 }
 
@@ -131,4 +132,22 @@ function deleteReview(reviewID) {
     .catch((err) => {
         console.log(err);
     });
+}
+
+async function updateRating(id, rating) {
+    response = await sendRequest("POST", `http://localhost:8081/restaurants/update`, {
+        id,
+        rating
+    });
+    console.log(response);
+}
+
+function updateReview(id) {
+    sendRequest("POST", `http://localhost:8081/review/update`, {
+        idreview: id,
+        title: document.getElementById("title").value,
+        rating: document.getElementById("rating").value,
+        content: document.getElementById("content").value
+    });
+    console.log(id);
 }

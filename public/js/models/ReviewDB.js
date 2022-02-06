@@ -38,6 +38,21 @@ class ReviewDB{
 		const sql = "DELETE FROM review WHERE idreview = ?"
 		db.query(sql, [id], callback)
 	}
+
+	editReviewDB(review, callback) {
+		const sql =
+			"UPDATE review SET title = ?, rating = ?, content = ? WHERE idreview = ?"
+		db.query(
+			sql,
+			[	
+				review[1],
+				review[2],
+				review[3],
+				review[0]
+			],
+			callback
+		)
+	}
 }
 
 module.exports = ReviewDB

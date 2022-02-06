@@ -1,104 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>WTS - Restaurants</title>
-		<link rel="stylesheet" href="../css/styles.css" />
-		<link rel="stylesheet" href="../css/card.css" />
-		
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script
-			src="https://kit.fontawesome.com/bad3156c36.js"
-			crossorigin="anonymous"
-		></script>
-		<script src="../js/app.js"></script>
-	</head>
-	<header>
-		<div class="topbar">
-			<h2 class="logo-text">
-				What They Say?
-				<i class="fas fa-hamburger"></i>
-			</h2>
-			<!-- <h3 class="logIn-button"></h3> -->
-			<div class="logIn-button" id="login">
-				<a href="../html/login.html">Log In</a>
-			</div>
-			<div class="logIn-button" id="logout" onclick="logOutUser()">
-				<h4>Log Out</h4>
-			</div>
-		</div>
-	</header>
-	<body onload="getRestaurants()" background="../images/wood_bg.jpg" alt="">
-		<div class="sorting-background">
-			<div class="dropdown" data-dropdown>
-				<h3 class="sort-label">Popularity</h3>
-				<input
-					type="image"
-					src="../images/Dropdown_tmp.svg"
-					alt=""
-					name="opendropdown"
-					class="dropdown-button"
-					data-dropdown-button
-				/>
-				<div class="dropdown-menu">Dropdown Content</div>
-			</div>
-			<div class="dropdown" data-dropdown>
-				<h3 class="sort-label">Cuisine</h3>
-				<input
-					type="image"
-					src="../images/Dropdown_tmp.svg"
-					alt=""
-					name="opendropdown"
-					class="dropdown-button"
-					data-dropdown-button
-				/>
-				<div class="dropdown-menu">Dropdown Content</div>
-			</div>
-			<div class="dropdown" data-dropdown>
-				<h3 class="sort-label">Other Sorting</h3>
-				<input
-					type="image"
-					src="../images/Dropdown_tmp.svg"
-					alt=""
-					name="opendropdown"
-					class="dropdown-button"
-					data-dropdown-button
-				/>
-				<div class="dropdown-menu">Dropdown Content</div>
-			</div>
-			<div class="dropdown" data-dropdown>
-				<h3 class="sort-label">SearchBar</h3>
-				<img class="search-background" src="../images/SearchBar.svg" alt="" />
-				<form action="" method="get">
-					<input
-						class="search"
-						type="text"
-						placeholder="Search for restaurants"
-					/>
-				</form>
-			</div>
-		</div>
-		<div class="view-background">
-			<script>
-				$(document).ready(function () {
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTS - Restaurants</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/card.css" />
 
-					if (localStorage.getItem("loggedIn") == "true") {
-						$("#logout").show();
-						$("#login").hide();
-					} else {
-						$("#logout").hide();
-						$("#login").show();
-					}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/bad3156c36.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/app.js"></script>
+  </head>
+  <header>
+    <div class="topbar">
+      <h2 class="logo-text">
+        What They Say?
+        <i class="fas fa-hamburger"></i>
+      </h2>
+      <!-- <h3 class="logIn-button"></h3> -->
+      <div class="logIn-button" id="login">
+        <a href="../html/login.html">Log In</a>
+      </div>
+      <div class="logIn-button" id="logout" onclick="logOutUser()">
+        <h4>Log Out</h4>
+      </div>
+    </div>
+  </header>
+  <body onload="getRestaurants()" background="../images/wood_bg.jpg" alt="">
+    <div class="sorting-background">
+      <div class="dropdown" data-dropdown>
+        <h3 class="sort-label">Popularity</h3>
+        <input
+          type="image"
+          src="../images/Dropdown_tmp.svg"
+          alt=""
+          name="opendropdown"
+          class="dropdown-button"
+          data-dropdown-button
+        />
+        <div class="dropdown-menu">Dropdown Content</div>
+      </div>
+      <div class="dropdown" data-dropdown>
+        <h3 class="sort-label">Cuisine</h3>
+        <input
+          type="image"
+          src="../images/Dropdown_tmp.svg"
+          alt=""
+          name="opendropdown"
+          class="dropdown-button"
+          data-dropdown-button
+        />
+        <div class="dropdown-menu">Dropdown Content</div>
+      </div>
+      <div class="dropdown" data-dropdown>
+        <h3 class="sort-label">Other Sorting</h3>
+        <input
+          type="image"
+          src="../images/Dropdown_tmp.svg"
+          alt=""
+          name="opendropdown"
+          class="dropdown-button"
+          data-dropdown-button
+        />
+        <div class="dropdown-menu">Dropdown Content</div>
+      </div>
+      <div class="dropdown" data-dropdown>
+        <h3 class="sort-label">SearchBar</h3>
+        <img class="search-background" src="../images/SearchBar.svg" alt="" />
+        <form action="" method="get">
+          <input
+            class="search"
+            type="text"
+            placeholder="Search for restaurants"
+          />
+        </form>
+      </div>
+    </div>
+    <div class="view-background">
+      <script>
+        $(document).ready(function () {
+          if (localStorage.getItem("loggedIn") == "true") {
+            $("#logout").show();
+            $("#login").hide();
+          } else {
+            $("#logout").hide();
+            $("#login").show();
+          }
 
-					var restaurants = localStorage.getItem("restaurantCount")
-					var restaurantData = JSON.parse(localStorage.getItem("restaurantData"))
-					console.log(restaurantData);
-					for (var i = 0; i < restaurants; i++) {
-						$("#card-container").append(
-							`
+          var restaurants = localStorage.getItem("restaurantCount");
+          var restaurantData = JSON.parse(
+            localStorage.getItem("restaurantData")
+          );
+          console.log(restaurantData);
+          for (var i = 0; i < restaurants; i++) {
+            $("#card-container").append(
+              `
 							<div class="card-bg" id="${restaurantData[i].idRestaurant}">
 								<div class="restaurant-icon-container">
 									<img
@@ -114,18 +115,15 @@
 								</div>
 							</div>
 							`
-						)
-					}
+            );
+          }
 
-					$(".card-bg").click(function(e) {
-						openRestaurant(e.target.id);
-						localStorage.setItem("CurrRestaurant", e.target.id);
-					})
-
-				});
-			</script>
-			<div class="card-container" id="card-container">
-			</div>
-		</div>
-	</body>
+          $(".card-bg").click(function (e) {
+            openRestaurant(e.target.id);
+          });
+        });
+      </script>
+      <div class="card-container" id="card-container"></div>
+    </div>
+  </body>
 </html>

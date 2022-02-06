@@ -65,4 +65,14 @@ function deleteReview(req, res) {
     })
 }
 
-module.exports = { getAllReviews, addReview, getReviewsByRestaurantID, getReviewsByUserID, deleteReview }
+function editReview(req, res) {
+    revDB.editReviewDB([req.body.idreview, req.body.title, req.body.rating, req.body.content], (err, result) => {
+        if (err) {
+            res.json(err)
+        } else {
+            res.json(result)
+        }
+    })
+}
+
+module.exports = { getAllReviews, addReview, getReviewsByRestaurantID, getReviewsByUserID, deleteReview, editReview }

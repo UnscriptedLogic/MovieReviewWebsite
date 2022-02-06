@@ -35,4 +35,17 @@ function getRestaurantByID(req, res){
     })
 }
 
-module.exports = { getAllRestaurants, getRestaurantByName, getRestaurantByID }
+function updateRating(req, res){
+    const restaurantID = String(req.body.id);
+    const newRating = parseInt(req.body.rating);
+    restDB.updateRating([newRating, restaurantID], (err, result) => {
+        if(err){
+            res.json(err)
+        } else {
+            res.json(result)
+        }
+    })
+}
+
+
+module.exports = { getAllRestaurants, getRestaurantByName, getRestaurantByID, updateRating }

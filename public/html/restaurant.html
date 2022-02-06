@@ -64,6 +64,7 @@
         </div>
         <button>
           <h3 id="add-review-button">Add your review</h3>
+          <h3 id="edit-review-button">Edit your review</h3>
         </button>
       </div>
     </div>
@@ -74,6 +75,8 @@
         } else {
           $("#add-review").hide();
         }
+
+        $("#edit-review-button").hide();
 
         $("#add-review-button").click(function () {
           addReview();
@@ -112,31 +115,53 @@
             }
           );
           let modificationTab = `
-				<div id="modify${reviewItem.idreview}">
-					<div class="delete">Delete</div>
-				</div>
-		  `;
+      	<div id="modify${reviewItem.idreview}">
+      		<div id="edit${reviewItem.idreview}">Edit</div>
+      		<div id="delete${reviewItem.idreview}">Delete</div>
+      	</div>
+       `;
           $(".content").append(
             `
-			<div class="review-card" id="${reviewItem.idreview}">
-				<h2 class="review-title">${reviewItem.title}</h2>
-				<h3 class="review-rating">Rated it: ${reviewItem.rating}/10</h3>
-				<p class="review-content">${reviewItem.content}</p>
-				<p>Posted on ${reviewItem.create_time} by ${user.data[0].fname} ${
+      <div class="review-card" id="${reviewItem.idreview}">
+      	<h2 class="review-title">${reviewItem.title}</h2>
+      	<h3 class="review-rating">Rated it: ${reviewItem.rating}/10</h3>
+      	<p class="review-content">${reviewItem.content}</p>
+      	<p>Posted on ${reviewItem.create_time} by ${user.data[0].fname} ${
               user.data[0].lname
             }</p>
-				${
+      	${
           reviewItem.user_id !== parseInt(localStorage.getItem("userID"))
             ? ""
             : modificationTab
         }
-			</div>
-			`
+      </div>
+      `
           );
 
-          console.log(reviewItem.idreview);
-          $("#modify" + reviewItem.idreview).click(function () {
+          $("#delete" + reviewItem.idreview).click(function () {
             deleteReview(reviewItem.idreview);
+          });
+
+          $("#edit" + reviewItem.idreview).click(function () {
+            $("#add-review-button").hide();
+            $("#edit-review-button").show();
+
+            $("#title").val(reviewItem.title);
+            $("#rating").val(reviewItem.rating);
+            $("#content").val(reviewItem.content);
+          });
+
+          $("#edit-review-button").click(function () {
+            $("#edit-review-button").hide();
+            sendRequest("POST", `http://localhost:8081/review/update`, {
+              idreview: parseInt(reviewItem.idreview),
+              title: document.getElementById("title").value,
+              rating: document.getElementById("rating").value,
+              content: document.getElementById("content").value,
+            }).then(function () {
+              location.reload();
+              $("#add-review-button").show();
+            });
           });
 
           rating += parseInt(reviewItem.rating);
@@ -144,6 +169,10 @@
 
         $("#retaurant-rating").text(
           "Rating: " + rating / review.data.length + "/10"
+        );
+        updateRating(
+          localStorage.getItem("CurrRestaurant"),
+          rating / review.data.length
         );
       });
     </script>

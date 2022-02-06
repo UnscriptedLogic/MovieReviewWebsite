@@ -16,6 +16,11 @@ class RestaurantDB{
         let sql = "SELECT * FROM restaurant WHERE idRestaurant = ?"
         return db.query(sql, [id], callback)
     }
+
+    updateRating(update, callback){
+        let sql = "UPDATE restaurant SET rating = ? WHERE idRestaurant = ?"
+        return db.query(sql, [update[0], update[1]], callback)
+    }
 }
 
 module.exports = RestaurantDB
