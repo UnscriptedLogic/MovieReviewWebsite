@@ -152,7 +152,6 @@
           });
 
           $("#edit-review-button").click(function () {
-            $("#edit-review-button").hide();
             sendRequest("POST", `http://localhost:8081/review/update`, {
               idreview: parseInt(reviewItem.idreview),
               title: document.getElementById("title").value,
@@ -160,6 +159,7 @@
               content: document.getElementById("content").value,
             }).then(function () {
               location.reload();
+              $("#edit-review-button").hide();
               $("#add-review-button").show();
             });
           });
